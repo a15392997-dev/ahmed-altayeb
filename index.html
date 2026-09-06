@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<title>أحمد الطيب | محوّل العملات</title>
+<style>
+:root{--bg:#07111f;--card:#0d1b2d;--card2:#10243b;--text:#f8fafc;--muted:#9fb0c4;--line:#25405d;--accent:#2dd4bf;--accent2:#38bdf8;--white:#fff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 20% 10%,#12385a 0,#07111f 42%,#040a12 100%);padding:22px}
+.wrap{max-width:680px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.brand{display:flex;gap:12px;align-items:center}.logo{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04202a;font-weight:900;font-size:22px;box-shadow:0 8px 30px #2dd4bf33}.brand h1{font-size:22px;margin:0}.brand p{font-size:12px;color:var(--muted);margin:5px 0 0}.live{font-size:12px;color:#b7f7ee;border:1px solid #2dd4bf55;background:#2dd4bf12;padding:8px 11px;border-radius:999px}
+.card{background:linear-gradient(180deg,#102238dd,#0a1728ee);border:1px solid #ffffff12;border-radius:28px;padding:24px;box-shadow:0 25px 70px #0007;backdrop-filter:blur(12px)}.hero{text-align:center;padding:8px 0 18px}.hero h2{font-size:32px;margin:0 0 8px}.hero p{color:var(--muted);margin:0}.field{margin-top:18px}.label{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#c8d4e3;margin-bottom:8px}input,select{width:100%;border:1px solid var(--line);background:#071523;color:var(--text);border-radius:16px;padding:16px;font-size:18px;outline:none}input:focus,select:focus{border-color:var(--accent)}.currencies{display:grid;grid-template-columns:1fr 56px 1fr;gap:10px;align-items:end}.swap{height:54px;border:0;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04202a;font-size:25px;font-weight:900;cursor:pointer}.result{margin-top:22px;padding:22px;border-radius:22px;background:linear-gradient(135deg,#0e2a39,#0a1b2b);border:1px solid #2dd4bf30;text-align:center}.result small{color:var(--muted)}.number{font-size:38px;font-weight:900;margin:8px 0;word-break:break-word}.rate{color:#c8d4e3;font-size:13px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}button.action{padding:13px;border-radius:14px;border:1px solid var(--line);background:#0a1726;color:var(--text);font-weight:700;cursor:pointer}.source{margin-top:18px;color:#8fa2b8;font-size:11px;text-align:center;line-height:1.7}.source a{color:#9deee3}.error{color:#fecaca}.footer{text-align:center;color:#6f849b;font-size:11px;margin-top:18px}
+@media(max-width:520px){body{padding:12px}.card{padding:18px}.hero h2{font-size:27px}.number{font-size:31px}.top{align-items:flex-start}.live{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo">أ</div><div><h1>أحمد الطيب</h1><p>محوّل العملات</p></div></div>
+    <div class="live" id="status">جاري تحديث السعر…</div>
+  </header>
+
+  <main class="card">
+    <div class="hero"><h2>حوّل عملتك بسهولة</h2><p>أسعار صرف تُجلب تلقائياً من مصدر بيانات للعملات.</p></div>
+
+    <div class="field">
+      <div class="label"><span>المبلغ</span><span id="inputCode">SDG</span></div>
+      <input id="amount" type="number" min="0" step="any" value="100000" inputmode="decimal" placeholder="اكتب المبلغ">
+    </div>
+
+    <div class="field currencies">
+      <div><div class="label">من</div><select id="from"></select></div>
+      <button class="swap" id="swap" title="تبديل العملات">⇄</button>
+      <div><div class="label">إلى</div><select id="to"></select></div>
+    </div>
+
+    <section class="result">
+      <small>النتيجة</small>
+      <div class="number" id="output">—</div>
+      <div class="rate" id="rate">جارٍ جلب سعر الصرف…</div>
+    </section>
+
+    <div class="actions">
+      <button class="action" id="copy">نسخ النتيجة</button>
+      <button class="action" id="share">مشاركة الموقع</button>
+    </div>
+
+    <div class="source" id="source">المصدر: ExchangeRate-API — الأسعار لأغراض المعلومات وليست عرضاً مالياً ملزماً.</div>
+  </main>
+  <div class="footer">أحمد الطيب © 2026</div>
+</div>
+
+<script>
+const C={
+ SDG:["🇸🇩","الجنيه السوداني","ج.س"], EGP:["🇪🇬","الجنيه المصري","ج.م"],
+ USD:["🇺🇸","الدولار الأمريكي","$"], SAR:["🇸🇦","الريال السعودي","ر.س"],
+ AED:["🇦🇪","الدرهم الإماراتي","د.إ"], EUR:["🇪🇺","اليورو","€"],
+ GBP:["🇬🇧","الجنيه الإسترليني","£"], QAR:["🇶🇦","الريال القطري","ر.ق"],
+ KWD:["🇰🇼","الدينار الكويتي","د.ك"], TRY:["🇹🇷","الليرة التركية","₺"]
+};
+const from=document.querySelector("#from"),to=document.querySelector("#to"),amount=document.querySelector("#amount");
+const output=document.querySelector("#output"),rateEl=document.querySelector("#rate"),status=document.querySelector("#status");
+let rates={};
+
+for(const [code,v] of Object.entries(C)){from.add(new Option(`${v[0]} ${v[1]}`,code));to.add(new Option(`${v[0]} ${v[1]}`,code))}
+from.value="SDG";to.value="EGP";
+
+async function loadRates(base){
+  status.textContent="جاري تحديث السعر…";
+  try{
+    const res=await fetch(`https://open.er-api.com/v6/latest/${base}`,{cache:"no-store"});
+    if(!res.ok) throw new Error("network");
+    const data=await res.json();
+    if(data.result!=="success") throw new Error("api");
+    rates=data.rates||{};
+    status.textContent="● السعر محدث";
+    status.style.color="#b7f7ee";
+    convert();
+  }catch(e){
+    status.textContent="تعذر تحديث السعر";
+    rateEl.textContent="تحقق من اتصال الإنترنت ثم أعد المحاولة.";
+    rateEl.className="rate error";
+  }
+}
+function fmt(n){return Number(n).toLocaleString("ar-EG",{maximumFractionDigits:2})}
+function convert(){
+  const x=Number(amount.value), a=from.value,b=to.value;
+  document.querySelector("#inputCode").textContent=a;
+  if(!x||!rates[b]){output.textContent="—";return}
+  const result=x*rates[b];
+  output.textContent=`${fmt(result)} ${C[b][2]}`;
+  rateEl.textContent=`1 ${a} = ${fmt(rates[b])} ${b}`;
+}
+from.onchange=()=>loadRates(from.value);
+to.onchange=convert;
+amount.oninput=convert;
+document.querySelector("#swap").onclick=()=>{const x=from.value;from.value=to.value;to.value=x;loadRates(from.value)};
+document.querySelector("#copy").onclick=async()=>{if(output.textContent!=="—") await navigator.clipboard.writeText(output.textContent);};
+document.querySelector("#share").onclick=async()=>{if(navigator.share) await navigator.share({title:"أحمد الطيب | محوّل العملات",text:"جرّب محوّل العملات أحمد الطيب",url:location.href}); else await navigator.clipboard.writeText(location.href);};
+loadRates(from.value);
+</script>
+</body>
+</html>
