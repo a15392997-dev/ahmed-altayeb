@@ -5,250 +5,605 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#030b18">
 <title>الموازي | أحمد الطيب</title>
+
 <style>
 :root{
-  --bg:#030914;--panel:#071426;--panel2:#0a1b30;--line:#18314d;
-  --gold:#f3c75b;--gold2:#ffe9a5;--blue:#159cff;--cyan:#39c8ff;
-  --text:#f7f9fc;--muted:#9dafc3;--green:#39e27d;--red:#ff6678;
+  --bg:#030914;
+  --panel:#071426;
+  --panel2:#0a1b30;
+  --line:#18314d;
+  --gold:#f3c75b;
+  --gold2:#ffe9a5;
+  --blue:#159cff;
+  --cyan:#39c8ff;
+  --text:#f7f9fc;
+  --muted:#9dafc3;
+  --green:#39e27d;
 }
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
-  margin:0;color:var(--text);font-family:Tahoma,Arial,sans-serif;
+  margin:0;
+  color:var(--text);
+  font-family:Tahoma,Arial,sans-serif;
   background:
     radial-gradient(circle at 0 18%,#06386a55 0,transparent 25%),
     radial-gradient(circle at 100% 42%,#004c9b44 0,transparent 28%),
     linear-gradient(145deg,#020713,#061325 55%,#020712);
   min-height:100vh;
 }
-body:before,body:after{
-  content:"";position:fixed;z-index:-1;width:260px;height:260px;
-  border-radius:50%;filter:blur(80px);opacity:.22
+
+body:before,
+body:after{
+  content:"";
+  position:fixed;
+  z-index:-1;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.22;
 }
-body:before{left:-130px;top:220px;background:#008cff}
-body:after{right:-130px;top:470px;background:#006eff}
-.wrap{width:min(1180px,calc(100% - 24px));margin:auto}
-header{padding:22px 0 10px}
+
+body:before{
+  left:-130px;
+  top:220px;
+  background:#008cff;
+}
+
+body:after{
+  right:-130px;
+  top:470px;
+  background:#006eff;
+}
+
+.wrap{
+  width:min(1180px,calc(100% - 24px));
+  margin:auto;
+}
+
+header{
+  padding:22px 0 10px;
+}
+
 .header-inner{
-  display:flex;align-items:center;justify-content:space-between;gap:15px
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
-.brand{display:flex;align-items:center;gap:13px}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
 .logo{
-  width:62px;height:62px;border-radius:18px;display:grid;place-items:center;
-  color:#161007;font-size:30px;font-weight:900;
+  width:62px;
+  height:62px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  color:#161007;
+  font-size:30px;
+  font-weight:900;
   background:linear-gradient(145deg,#fff0a7,#dcae35);
-  box-shadow:0 0 30px #e8b93a33,inset 0 1px #fff8
+  box-shadow:0 0 30px #e8b93a33,inset 0 1px #fff8;
 }
-h1{margin:0;font-size:29px;letter-spacing:.3px}
-.brand p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+h1{
+  margin:0;
+  font-size:29px;
+  letter-spacing:.3px;
+}
+
+.brand p{
+  margin:4px 0 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
 .live{
-  display:flex;align-items:center;gap:8px;padding:9px 13px;
-  border:1px solid #29425e;border-radius:999px;
-  background:#071426;color:#b9f5d0;font-size:12px
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 13px;
+  border:1px solid #29425e;
+  border-radius:999px;
+  background:#071426;
+  color:#b9f5d0;
+  font-size:12px;
 }
+
 .dot{
-  width:8px;height:8px;border-radius:50%;background:var(--green);
-  box-shadow:0 0 12px var(--green)
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 12px var(--green);
 }
+
 nav{
-  display:flex;gap:5px;overflow:auto;padding:8px;margin-top:12px;
-  border:1px solid #17304b;border-radius:18px;background:#061223dd;
-  position:sticky;top:8px;z-index:10;backdrop-filter:blur(14px)
+  display:flex;
+  gap:5px;
+  overflow:auto;
+  padding:8px;
+  margin-top:12px;
+  border:1px solid #17304b;
+  border-radius:18px;
+  background:#061223dd;
+  position:sticky;
+  top:8px;
+  z-index:10;
+  backdrop-filter:blur(14px);
 }
+
 nav button{
-  flex:1;min-width:120px;height:45px;border:0;border-radius:13px;
-  background:transparent;color:#c8d5e4;font-weight:800;
-  cursor:pointer;font-family:inherit
+  flex:1;
+  min-width:120px;
+  height:45px;
+  border:0;
+  border-radius:13px;
+  background:transparent;
+  color:#c8d5e4;
+  font-weight:800;
+  cursor:pointer;
+  font-family:inherit;
 }
+
 nav button.active{
-  background:linear-gradient(145deg,#e8b63e,#8e6217);color:#111;
-  box-shadow:0 8px 22px #c9942b33
+  background:linear-gradient(145deg,#e8b63e,#8e6217);
+  color:#111;
+  box-shadow:0 8px 22px #c9942b33;
 }
-main{padding:18px 0 35px}
+
+main{
+  padding:18px 0 35px;
+}
+
 .hero{
-  border:1px solid #254767;border-radius:28px;padding:30px;
+  border:1px solid #254767;
+  border-radius:28px;
+  padding:30px;
   background:
     radial-gradient(circle at 15% 45%,#0077ff26,transparent 30%),
     linear-gradient(135deg,#08182c,#040c18);
-  box-shadow:0 25px 70px #0008;overflow:hidden;position:relative
+  box-shadow:0 25px 70px #0008;
+  overflow:hidden;
+  position:relative;
 }
+
 .hero:after{
-  content:"";position:absolute;inset:auto -10% -55% -10%;
-  height:180px;background:#007cff22;filter:blur(60px)
+  content:"";
+  position:absolute;
+  inset:auto -10% -55% -10%;
+  height:180px;
+  background:#007cff22;
+  filter:blur(60px);
 }
+
 .hero-grid{
-  display:grid;grid-template-columns:1.1fr .9fr;gap:25px;
-  align-items:center;position:relative;z-index:1
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:25px;
+  align-items:center;
+  position:relative;
+  z-index:1;
 }
-.kicker{color:var(--gold);font-weight:900;font-size:13px;margin-bottom:9px}
+
+.kicker{
+  color:var(--gold);
+  font-weight:900;
+  font-size:13px;
+  margin-bottom:9px;
+}
+
 .hero h2{
-  font-size:clamp(27px,4vw,44px);margin:0 0 10px;line-height:1.2
+  font-size:clamp(27px,4vw,44px);
+  margin:0 0 10px;
+  line-height:1.2;
 }
-.hero h2 span{color:var(--gold)}
-.hero p{color:var(--muted);line-height:1.9;margin:0;max-width:650px}
+
+.hero h2 span{
+  color:var(--gold);
+}
+
+.hero p{
+  color:var(--muted);
+  line-height:1.9;
+  margin:0;
+  max-width:650px;
+}
+
 .hero-actions{
-  display:flex;gap:10px;flex-wrap:wrap;margin-top:20px
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
 }
+
 .btn{
   border:1px solid #5c4820;
   background:linear-gradient(145deg,#f1c85e,#a56f15);
-  color:#141006;font-weight:900;border-radius:13px;
-  padding:13px 18px;cursor:pointer;font-family:inherit
+  color:#141006;
+  font-weight:900;
+  border-radius:13px;
+  padding:13px 18px;
+  cursor:pointer;
+  font-family:inherit;
 }
+
 .btn.secondary{
-  background:#08172a;border-color:#24425f;color:#e7edf5
+  background:#08172a;
+  border-color:#24425f;
+  color:#e7edf5;
 }
-.statbox{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.statbox{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
 .stat{
-  padding:18px;border:1px solid #1d3b5a;border-radius:18px;
-  background:#061325cc
+  padding:18px;
+  border:1px solid #1d3b5a;
+  border-radius:18px;
+  background:#061325cc;
 }
-.stat small{color:var(--muted);display:block;margin-bottom:7px}
-.stat strong{font-size:21px;color:var(--gold2)}
+
+.stat small{
+  color:var(--muted);
+  display:block;
+  margin-bottom:7px;
+}
+
+.stat strong{
+  font-size:21px;
+  color:var(--gold2);
+}
+
 .section-title{
-  display:flex;justify-content:space-between;align-items:end;
-  gap:10px;margin:30px 2px 13px
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:10px;
+  margin:30px 2px 13px;
 }
-.section-title h3{margin:0;font-size:22px}
-.section-title p{margin:0;color:var(--muted);font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+
+.section-title h3{
+  margin:0;
+  font-size:22px;
+}
+
+.section-title p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
 .card{
-  border:1px solid var(--line);border-radius:20px;padding:17px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:17px;
   background:linear-gradient(180deg,#09182b,#061120);
-  box-shadow:0 14px 35px #0005
+  box-shadow:0 14px 35px #0005;
 }
+
 .currency-head{
-  display:flex;justify-content:space-between;align-items:center;gap:8px
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
 }
-.currency-name{font-weight:900}
-.code{color:var(--muted);font-size:11px}
+
+.currency-name{
+  font-weight:900;
+}
+
+.code{
+  color:var(--muted);
+  font-size:11px;
+}
+
 .price{
-  font-size:24px;font-weight:900;color:var(--gold2);margin:15px 0 6px
+  font-size:24px;
+  font-weight:900;
+  color:var(--gold2);
+  margin:15px 0 6px;
 }
-.change{font-size:11px;color:var(--green)}
+
+.change{
+  font-size:11px;
+  color:var(--green);
+}
+
 .badge{
-  font-size:10px;padding:5px 8px;border-radius:999px;
-  border:1px solid #29425e;color:#b9c9da
+  font-size:10px;
+  padding:5px 8px;
+  border-radius:999px;
+  border:1px solid #29425e;
+  color:#b9c9da;
 }
+
 .converter{
-  display:grid;grid-template-columns:1fr 54px 1fr;
-  gap:12px;align-items:end
+  display:grid;
+  grid-template-columns:1fr 54px 1fr;
+  gap:12px;
+  align-items:end;
 }
+
 label{
-  display:block;color:var(--muted);font-size:12px;margin-bottom:7px
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:7px;
 }
-input,select{
-  width:100%;height:53px;border-radius:14px;
-  border:1px solid #24405d;background:#041020;color:#fff;
-  padding:0 13px;font:inherit;outline:none
+
+input,
+select{
+  width:100%;
+  height:53px;
+  border-radius:14px;
+  border:1px solid #24405d;
+  background:#041020;
+  color:#fff;
+  padding:0 13px;
+  font:inherit;
+  outline:none;
 }
-input:focus,select:focus{
-  border-color:var(--gold);box-shadow:0 0 0 3px #f3c75b18
+
+input:focus,
+select:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px #f3c75b18;
 }
+
 .swap{
-  height:53px;width:54px;border-radius:14px;
-  border:1px solid #6b5423;background:#111b28;
-  color:var(--gold2);font-size:23px;cursor:pointer
+  height:53px;
+  width:54px;
+  border-radius:14px;
+  border:1px solid #6b5423;
+  background:#111b28;
+  color:var(--gold2);
+  font-size:23px;
+  cursor:pointer;
 }
+
 .result{
-  margin-top:15px;padding:20px;border-radius:18px;
+  margin-top:15px;
+  padding:20px;
+  border-radius:18px;
   border:1px solid #5d4a22;
-  background:linear-gradient(135deg,#191b16,#0b1724)
+  background:linear-gradient(135deg,#191b16,#0b1724);
 }
-.result small{color:var(--muted)}
+
+.result small{
+  color:var(--muted);
+}
+
 .result strong{
-  display:block;font-size:31px;color:var(--gold2);margin:6px 0
+  display:block;
+  font-size:31px;
+  color:var(--gold2);
+  margin:6px 0;
 }
+
 .notice{
-  margin-top:12px;padding:12px 14px;border-radius:13px;
-  border:1px dashed #33526f;color:#aebed0;
-  font-size:11px;line-height:1.7
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:13px;
+  border:1px dashed #33526f;
+  color:#aebed0;
+  font-size:11px;
+  line-height:1.7;
 }
+
 .tool-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:12px
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
 }
+
 .tool-card{
-  min-height:210px;display:flex;flex-direction:column;
-  justify-content:space-between
+  min-height:210px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
-.icon{font-size:31px;margin-bottom:9px}
-.tool-card h4{margin:0 0 7px;font-size:18px}
+
+.icon{
+  font-size:31px;
+  margin-bottom:9px;
+}
+
+.tool-card h4{
+  margin:0 0 7px;
+  font-size:18px;
+}
+
 .tool-card p{
-  color:var(--muted);font-size:12px;line-height:1.8;margin:0
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  margin:0;
 }
-.tool-card .btn{width:100%;margin-top:16px}
+
+.tool-card .btn{
+  width:100%;
+  margin-top:16px;
+}
+
+.source{
+  color:#aebed0;
+}
+
+.source b{
+  color:var(--gold);
+}
+
+.hidden{
+  display:none;
+}
+
 footer{
-  border-top:1px solid #17304b;padding:22px 0 35px;
-  color:#8497ad;text-align:center;font-size:11px
+  border-top:1px solid #17304b;
+  padding:22px 0 35px;
+  color:#8497ad;
+  text-align:center;
+  font-size:11px;
 }
-.source{color:#aebed0}
-.source b{color:var(--gold)}
-.hidden{display:none}
 
 @media(max-width:850px){
-  .hero-grid{grid-template-columns:1fr}
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .tool-grid{grid-template-columns:1fr}
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tool-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:560px){
-  .wrap{width:min(100% - 14px,1180px)}
-  .header-inner{align-items:flex-start}
-  .live{display:none}
-  h1{font-size:24px}
-  .logo{width:53px;height:53px}
-  .hero{padding:22px}
-  .statbox{grid-template-columns:1fr 1fr}
-  .grid{grid-template-columns:1fr 1fr}
-  .converter{grid-template-columns:1fr}
+
+  .wrap{
+    width:min(100% - 14px,1180px);
+  }
+
+  .header-inner{
+    align-items:flex-start;
+  }
+
+  .live{
+    display:none;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+  .logo{
+    width:53px;
+    height:53px;
+  }
+
+  .hero{
+    padding:22px;
+  }
+
+  .statbox{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .converter{
+    grid-template-columns:1fr;
+  }
+
   .swap{
     justify-self:center;
-    transform:rotate(90deg)
+    transform:rotate(90deg);
   }
-  nav button{min-width:105px}
-  .price{font-size:19px}
-  .card{padding:14px}
+
+  nav button{
+    min-width:105px;
+  }
+
+  .price{
+    font-size:19px;
+  }
+
+  .card{
+    padding:14px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <div class="wrap">
 
 <header>
+
   <div class="header-inner">
+
     <div class="brand">
+
       <div class="logo">أ</div>
+
       <div>
         <h1>الموازي</h1>
         <p>أحمد الطيب — أسعار ومعلومات السوق</p>
       </div>
+
     </div>
 
     <div class="live">
       <span class="dot"></span>
       النظام جاهز للتحديث
     </div>
+
   </div>
 
   <nav id="nav">
-    <button class="active" data-target="home">الرئيسية</button>
-    <button data-target="currencies">العملات</button>
-    <button data-target="gold">الذهب</button>
-    <button data-target="oil">النفط</button>
-    <button data-target="about">عن الموقع</button>
+
+    <button class="active" data-target="home">
+      الرئيسية
+    </button>
+
+    <button data-target="currencies">
+      العملات
+    </button>
+
+    <button data-target="gold">
+      الذهب
+    </button>
+
+    <button data-target="oil">
+      النفط
+    </button>
+
+    <button data-target="about">
+      عن الموقع
+    </button>
+
   </nav>
+
 </header>
+
 
 <main>
 
 <section id="home">
 
   <div class="hero">
+
     <div class="hero-grid">
 
       <div>
-        <div class="kicker">الموازي | أحمد الطيب</div>
+
+        <div class="kicker">
+          الموازي | أحمد الطيب
+        </div>
 
         <h2>
           المعلومة الدقيقة ..
@@ -262,15 +617,25 @@ footer{
         </p>
 
         <div class="hero-actions">
-          <button class="btn" onclick="showSection('currencies')">
+
+          <button
+            class="btn"
+            onclick="showSection('currencies')"
+          >
             ابدأ بتحويل العملات
           </button>
 
-          <button class="btn secondary" onclick="showSection('gold')">
+          <button
+            class="btn secondary"
+            onclick="showSection('gold')"
+          >
             حاسبة الذهب
           </button>
+
         </div>
+
       </div>
+
 
       <div class="statbox">
 
@@ -295,69 +660,107 @@ footer{
         </div>
 
       </div>
+
     </div>
+
   </div>
 
+
   <div class="section-title">
+
     <div>
       <h3>الوصول السريع</h3>
       <p>كل وظيفة في قسمها</p>
     </div>
+
   </div>
+
 
   <div class="tool-grid">
 
     <div class="card tool-card">
+
       <div>
+
         <div class="icon">💱</div>
+
         <h4>محول العملات</h4>
+
         <p>
           حوّل بين العملات بسهولة، مع عرض مصدر السعر
           وتاريخ التحديث.
         </p>
+
       </div>
 
-      <button class="btn" onclick="showSection('currencies')">
+      <button
+        class="btn"
+        onclick="showSection('currencies')"
+      >
         فتح المحوّل
       </button>
+
     </div>
 
+
     <div class="card tool-card">
+
       <div>
+
         <div class="icon">🥇</div>
+
         <h4>الذهب</h4>
+
         <p>
           قسم مستقل لسعر الذهب وحساب قيمة الذهب
           حسب العيار والوزن.
         </p>
+
       </div>
 
-      <button class="btn" onclick="showSection('gold')">
+      <button
+        class="btn"
+        onclick="showSection('gold')"
+      >
         فتح الذهب
       </button>
+
     </div>
 
+
     <div class="card tool-card">
+
       <div>
+
         <div class="icon">🛢️</div>
+
         <h4>النفط</h4>
+
         <p>
           قسم مستقل لأسعار النفط مع مصدر البيانات
           ووحدة القياس.
         </p>
+
       </div>
 
-      <button class="btn" onclick="showSection('oil')">
+      <button
+        class="btn"
+        onclick="showSection('oil')"
+      >
         فتح النفط
       </button>
+
     </div>
 
   </div>
 
+
   <div class="notice">
+
     تنبيه: الأرقام الظاهرة في هذه النسخة هي بيانات واجهة تجريبية فقط.
     لن نعرضها على أنها أسعار حقيقية قبل ربط الموقع بالمصدر الموثوق
     وتفعيل التحديث التلقائي.
+
   </div>
 
 </section>
@@ -366,6 +769,7 @@ footer{
 <section id="currencies" class="hidden">
 
   <div class="section-title">
+
     <div>
       <h3>محول العملات</h3>
       <p>واجهة جاهزة لربط مصدر الأسعار</p>
@@ -374,14 +778,18 @@ footer{
     <span class="badge">
       رسمي / موازي منفصلان
     </span>
+
   </div>
+
 
   <div class="card">
 
     <div class="converter">
 
       <div>
+
         <label>المبلغ</label>
+
         <input
           id="amount"
           type="number"
@@ -389,14 +797,21 @@ footer{
           min="0"
           step="any"
         >
+
       </div>
 
-      <button class="swap" id="swap">⇄</button>
+
+      <button class="swap" id="swap">
+        ⇄
+      </button>
+
 
       <div>
+
         <label>العملة المستهدفة</label>
 
         <select id="to">
+
           <option value="USD">
             USD — الدولار الأمريكي
           </option>
@@ -416,38 +831,51 @@ footer{
           <option value="EGP">
             EGP — الجنيه المصري
           </option>
+
         </select>
+
       </div>
 
     </div>
 
+
     <div class="result">
-      <small>النتيجة التجريبية</small>
+
+      <small>النتيجة</small>
 
       <strong id="result">—</strong>
 
       <span id="rateLine" class="source">
         سيظهر السعر بعد الربط بالمصدر.
       </span>
+
     </div>
 
+
     <div class="notice">
+
       <b>مصدر السعر الرسمي:</b>
       سيتم ربطه ببيانات بنك السودان المركزي.
 
+      <br>
+
       <b>سعر الموازي:</b>
       سيكون في مسار مستقل حتى لا تختلط البيانات.
+
     </div>
 
   </div>
 
 
   <div class="section-title">
+
     <div>
       <h3>أسعار العملات</h3>
       <p>بطاقات جاهزة للبيانات الحية</p>
     </div>
+
   </div>
+
 
   <div class="grid" id="currencyCards"></div>
 
@@ -457,16 +885,22 @@ footer{
 <section id="gold" class="hidden">
 
   <div class="section-title">
+
     <div>
       <h3>الذهب</h3>
       <p>قسم مستقل لسعر الذهب وحاسبته</p>
     </div>
+
   </div>
+
 
   <div class="tool-grid">
 
+
     <div class="card">
+
       <div class="icon">🥇</div>
+
       <h4>سعر الذهب</h4>
 
       <div class="price">—</div>
@@ -474,6 +908,7 @@ footer{
       <p class="source">
         سيتم إدخال السعر من مصدر موثوق.
       </p>
+
     </div>
 
 
@@ -519,16 +954,22 @@ footer{
 <section id="oil" class="hidden">
 
   <div class="section-title">
+
     <div>
       <h3>النفط</h3>
       <p>صفحة مستقلة لأسعار النفط</p>
     </div>
+
   </div>
+
 
   <div class="tool-grid">
 
+
     <div class="card">
+
       <div class="icon">🛢️</div>
+
       <h4>خام برنت</h4>
 
       <div class="price">—</div>
@@ -536,6 +977,7 @@ footer{
       <p class="source">
         USD / برميل
       </p>
+
     </div>
 
 
@@ -545,209 +987,4 @@ footer{
 
       <h4>خام غرب تكساس</h4>
 
-      <div class="price">—</div>
-
-      <p class="source">
-        USD / برميل
-      </p>
-
-    </div>
-
-
-    <div class="card">
-
-      <div class="icon">🔎</div>
-
-      <h4>مصدر البيانات</h4>
-
-      <p>
-        سيتم تثبيت مصدر موثوق وتاريخ التحديث
-        قبل نشر السعر للزوار.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="about" class="hidden">
-
-  <div class="section-title">
-
-    <div>
-      <h3>عن الموازي</h3>
-      <p>أحمد الطيب</p>
-    </div>
-
-  </div>
-
-  <div class="card">
-
-    <h3>هدف الموقع</h3>
-
-    <p style="color:var(--muted);line-height:2">
-      تجميع المعلومات المالية في واجهة واحدة سهلة وواضحة،
-      مع إظهار مصدر كل سعر وعدم خلط السعر الرسمي بسعر الموازي.
-    </p>
-
-    <div class="notice">
-      <b>مبدأنا:</b>
-      لا يوجد سعر بدون مصدر واضح،
-      ولا نعرض بيانات تجريبية على أنها أسعار حقيقية.
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-  <div class="source">
-    <b>الموازي | أحمد الطيب</b>
-    — © 2026
-  </div>
-
-  <div style="margin-top:7px">
-    الموقع قيد التطوير — سيتم تفعيل الأسعار الحقيقية
-    والتحديث التلقائي بعد تثبيت مصادر البيانات.
-  </div>
-
-</footer>
-
-</div>
-
-
-<script>
-
-const data = [
-
-  ['USD','الدولار الأمريكي','$','—'],
-
-  ['EUR','اليورو','€','—'],
-
-  ['GBP','الجنيه الإسترليني','£','—'],
-
-  ['SAR','الريال السعودي','ر.س','—'],
-
-  ['AED','الدرهم الإماراتي','د.إ','—'],
-
-  ['EGP','الجنيه المصري','ج.م','—'],
-
-  ['QAR','الريال القطري','ر.ق','—'],
-
-  ['KWD','الدينار الكويتي','د.ك','—']
-
-];
-
-
-const cards = document.getElementById('currencyCards');
-
-cards.innerHTML = data.map(x => `
-
-  <div class="card">
-
-    <div class="currency-head">
-
-      <div>
-
-        <div class="currency-name">
-          ${x[0]}
-        </div>
-
-        <div class="code">
-          ${x[1]}
-        </div>
-
-      </div>
-
-      <span class="badge">
-        ${x[2]}
-      </span>
-
-    </div>
-
-    <div class="price">
-      ${x[3]}
-    </div>
-
-    <div class="change">
-      بانتظار المصدر الحقيقي
-    </div>
-
-  </div>
-
-`).join('');
-
-
-function showSection(id){
-
-  document
-    .querySelectorAll('main > section')
-    .forEach(s =>
-      s.classList.toggle('hidden',s.id !== id)
-    );
-
-  document
-    .querySelectorAll('nav button')
-    .forEach(b =>
-      b.classList.toggle(
-        'active',
-        b.dataset.target === id
-      )
-    );
-
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
-}
-
-
-document
-  .querySelectorAll('nav button')
-  .forEach(b =>
-    b.addEventListener(
-      'click',
-      () => showSection(b.dataset.target)
-    )
-  );
-
-
-document
-  .getElementById('swap')
-  .addEventListener('click',()=>{
-
-    const t = document.getElementById('to');
-
-    t.selectedIndex =
-      (t.selectedIndex + 1) %
-      t.options.length;
-
-  });
-
-
-document
-  .getElementById('amount')
-  .addEventListener('input',()=>{
-
-    const n =
-      Number(
-        document.getElementById('amount').value || 0
-      );
-
-    document.getElementById('result').textContent =
-      n
-      ? 'سيظهر هنا بعد الربط'
-      : '—';
-
-  });
-
-</script>
-
-</body>
-  </html>
+      <div class="price">—</
